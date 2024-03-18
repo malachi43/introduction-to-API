@@ -10,4 +10,4 @@
 
 - Point your browser to `http://localhost:3000/api/v1/rooms` to see the available rooms.
 
-- Test other endpoints located in index.js using the http verbs (GET, POST, DELETE, PATCH)
+- Test other endpoints located in index.js using the appropriate http verbs (GET, POST, DELETE, PATCH)
