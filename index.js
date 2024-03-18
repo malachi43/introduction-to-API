@@ -15,6 +15,26 @@ app.use(express.urlencoded({ extended: false }))
 //allow cross-origin resource sharing.
 app.use(cors())
 
+//index page
+app.get("/", (req, res) => {
+   res.status(200).json({endpoints: {
+    "GET": {
+       "room": ``,
+       "roomTypes": ``
+    },
+    "POST": {
+         "room": ``,
+         "roomTypes": ``
+    },
+    "DELETE": {
+       "room": ``
+    },
+    "PATCH": {
+      "room": ``
+    }
+   }})
+})
+
 app.get('/api/v1/room-types', async (req, res) => {
     const roomTypes = await RoomType.getAllRoomTypes()
     res.status(200).json({ roomTypes, count: roomTypes.length })
