@@ -1,0 +1,81 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Management API</title>
+  </head>
+  <body>
+    <h1>HOTEL MANAGEMENT API</h1>
+    <i
+      >This is a Hotel Management API. This API aids you to carry out the bare
+      minimum of the basic services a Hotel Management API should offer.</i
+    >
+    <ol>
+      <h2>Available Endpoints:</h2>
+      <li>
+        <h3>GET</h3>
+        <ul>
+          <b>ROOM</b>
+          <ol>
+            <li>
+              <b>endpoint:</b> /api/v1/rooms - <i>fetch all available rooms</i>
+            </li>
+            <li>
+              <b>endpoint:</b> /api/v1/rooms/{roomId} - <i>fetch single room</i>
+            </li>
+          </ol>
+        </ul>
+        <ul>
+          <br />
+          <b>ROOM TYPE</b>
+          <ol>
+            <li>
+              <b>endpoint:</b> /api/v1/room-types - <i>fetch all room types.</i>
+            </li>
+          </ol>
+        </ul>
+      </li>
+      <li>
+        <h3>POST</h3>
+        <ul>
+          <b>ROOM</b>
+          <ol>
+            <li><b>endpoint:</b> /api/v1/rooms - <i>create a new room.</i></li>
+          </ol>
+          <br />
+          <b>ROOM TYPE</b>
+          <ol>
+            <li>
+              <b>endpoint:</b> /api/v1/room-types -
+              <i>create a new room type.</i>
+            </li>
+          </ol>
+        </ul>
+      </li>
+      <li>
+        <h3>DELETE</h3>
+        <ul>
+          <b>ROOM</b>
+          <ol>
+            <li>
+              <b>endpoint:</b> /api/v1/rooms/{roomId} -
+              <i>delete a specific room with roomId.</i>
+            </li>
+          </ol>
+        </ul>
+      </li>
+      <li>
+        <h3>PATCH</h3>
+        <ul>
+          <b>ROOM</b>
+          <ol>
+            <li>
+              <b>endpoint:</b> api/v1/rooms/{roomId} -
+              <i>edit a specific room with roomId.</i>
+            </li>
+          </ol>
+        </ul>
+      </li>
+    </ol>
+  </body>
+</html>
