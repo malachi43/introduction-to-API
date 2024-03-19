@@ -7,7 +7,7 @@ const connectDatabase = require("./database/database")
 const roomRoute = require("./routes/room")
 const roomTypeRoute = require("./routes/room-type")
 const { join } = require("path")
-const baseUrl = `hello`
+const baseUrl = `https://introduction-to-api.onrender.com`
 
 //add json to req.body
 app.use(express.json())
@@ -18,13 +18,13 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
 //index page
-app.get("/", (req, res) => {
+app.get(`/${baseUrl}/`, (req, res) => {
     res.sendFile(join(__dirname, "index.html"))
 })
 
 //middlewares
-app.use("/api/v1/room-types", roomTypeRoute)
-app.use("/api/v1/rooms", roomRoute)
+app.use(`${baseUrl}/api/v1/room-types`, roomTypeRoute)
+app.use(`${baseUrl}/api/v1/rooms`, roomRoute)
 
 async function startServer() {
     await connectDatabase(process.env.DATABASE_URL)

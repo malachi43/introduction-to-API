@@ -6,7 +6,7 @@
 
 - On your local machine open your terminal, create a folder and cd into it. Run the command `git clone git@github.com:malachi43/introduction-to-API.git` to get a local copy of the project on your machine.
 
-- Run `npm install` to install the required dependencies. Thereafter start the server with the command `node index.js`
+- Run `npm install` to install the required dependencies. Thereafter start the server with the command `npm start`
 
 - Point your browser to `http://localhost:3000/api/v1/rooms` to see the available rooms.
 
