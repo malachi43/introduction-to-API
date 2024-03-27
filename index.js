@@ -8,10 +8,10 @@ const connectDatabase = require("./database/database")
 const roomRoute = require("./routes/room")
 const roomTypeRoute = require("./routes/room-type")
 const userRoute = require("./routes/user.route")
-const {validateUserPayload} = require("./middlewares/validatePayload")
+const { validateUserPayload } = require("./middlewares/validatePayload")
 const errorHandler = require("./middlewares/errorHandler")
+const notFound = require("./middlewares/notFound")
 const asyncWrapper = require("./utils/asyncWrapper")
-const isAuthenticated = require("./middlewares/isAuthenticated")
 const { join } = require("path")
 
 //add json to req.body
@@ -31,8 +31,9 @@ app.get(`/`, (req, res) => {
 
 //middlewares
 app.use("/api/v1/users", asyncWrapper(validateUserPayload), userRoute)
-app.use(`/api/v1/room-types`, asyncWrapper(isAuthenticated), roomTypeRoute)
-app.use(`/api/v1/rooms`, asyncWrapper(isAuthenticated), roomRoute)
+app.use(`/api/v1/room-types`, roomTypeRoute)
+app.use(`/api/v1/rooms`, roomRoute)
+app.use(notFound)
 app.use(errorHandler)
 
 async function startServer() {

@@ -4,6 +4,7 @@ const Room = require("../controllers/room")
 const asyncWrapper = require("../utils/asyncWrapper")
 const isAuthorized = require("../middlewares/isAuthorized")
 const { validateRoomPayload } = require("../middlewares/validatePayload")
+const isAuthenticated = require("../middlewares/isAuthenticated")
 
 
 router.get('/', asyncWrapper(async (req, res) => {
@@ -19,6 +20,7 @@ router.get('/:roomId', asyncWrapper(async (req, res) => {
 
 router.post('/',
     asyncWrapper(validateRoomPayload),
+    asyncWrapper(isAuthenticated),
     asyncWrapper(isAuthorized),
     asyncWrapper(async (req, res) => {
         const { name, roomType, price } = req.body
@@ -28,6 +30,7 @@ router.post('/',
 
 router.patch('/:roomId',
     asyncWrapper(validateRoomPayload),
+    asyncWrapper(isAuthenticated),
     asyncWrapper(isAuthorized),
     asyncWrapper(async (req, res) => {
         const edit = req.body
@@ -38,6 +41,7 @@ router.patch('/:roomId',
 
 router.delete('/:roomId',
     asyncWrapper(validateRoomPayload),
+    asyncWrapper(isAuthenticated),
     asyncWrapper(isAuthorized),
     asyncWrapper(async (req, res) => {
         const { roomId } = req.params

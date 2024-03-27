@@ -21,4 +21,13 @@ async function validateRoomPayload(req, res, next) {
     next()
 }
 
-module.exports = { validateRoomPayload, validateUserPayload }
+async function validateRoomTypePayload(req, res, next) {
+    const schema = joi.object({
+        name: joi.string().required()
+    })
+
+    await schema.validateAsync(req.body)
+    next()
+}
+
+module.exports = { validateRoomPayload, validateUserPayload, validateRoomTypePayload }
